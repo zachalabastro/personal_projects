@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<style>
+    .tebol2 {
+        border-collapse: collapse;
+        width: 75%;
+        height: 100%;
+        border: 1.5px solid #003060 ;
+    }
+    
+    .diff {
+        text-align: center;
+        padding: 10px;
+    }
+    
+    .diff:nth-child(even) {
+        background-color: #FFFFFF;
+        
+    }
+    </style>
+<head>
+    <meta name="viewport" content="with=device-width, initial-scale=1.0">
+    <title> Matteo Table Reservation </title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='my-reservations.css')}}">
+    <script src="{{ url_for('static', filename='reserve-submitted.js') }}"></script>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='all-images/favicon-32x32.png') }}">
+</head>
+<body>
+    <section class="header">
+        <nav>
+            <a href="{{ url_for('welcomepage') }}">
+                <img src="{{ url_for('static', filename='all-images/temp-logo.png') }}" alt="Image" class="nav-logo">
+            </a>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="{{ url_for('welcomepage') }}">HOME</a></li>
+                    <li><a href="{{ url_for('about') }}">ABOUT</a></li>
+                    <li><a onclick="togglePopup('popup-1')">RESERVE A TABLE</a></li>
+                    <li><a href="{{ url_for('all_reservations') }}">ALL RESERVATIONS</a></li>
+                    <li><a onclick="login('popup-2')">MY RESERVATIONS</a></li>
+                </ul>
+            </div>
+        </nav>
+        <center>
+            <table class="tebol2">
+                <tr style="background-color: #003060; color:#FFFFFF; height: 80px;" class="diff">
+                    <th class="diff">
+                        <h1> TABLE RESERVED SUCCESSFULLY </h1>
+                    </th>
+                </tr>
+                <tr class="diff">
+                    <td style="height: 150px;" class="diff"><center>
+                            <br><br>
+                            <label for="id" style="font-size: 20px; font: ovo;"> Would you like to reserve another table? </label>
+                            <br><br><br>
+                            <a href="{{ url_for('welcomepage') }}" style="color:white">
+                                <input type="button" value="No" text-align:center style="height:40px; width:150px"> 
+                            </a>
+                                &nbsp;&nbsp;&nbsp;
+                            <a href="{{ url_for('birdseye') }}" style="color:white">
+                                <button type="button" id="list" class="btn btn-sucess" style="height:40px; width:150px; background-color:#003060; color:#FFFFFF"> Yes </button>
+                            </a>
+                            <br><br>
+                    </center></td>
+                    
+                </tr>
+                </table>
+        </center>
+
+
+        <div class="popup" id="popup-1">
+            <div class="overlay"></div>
+            <div class="content">
+                <div class="close-btn" onclick="togglePopup('popup-1')">&times;</div>
+                <div class="inside-box"></div>
+                <h2>MATTEO RESERVATIONS</h2>
+                <div class="instructions">
+                    <h3><b>To secure your table reservation, kindly follow the proper steps below:</b></h3>
+                    <ol>
+                        <li>Click on the desired room to initiate the reservation process.</li>
+                        <li>Select the specific table you wish to reserve from the available options.</li>
+                        <li>Enter the date and time of your desired reservation.</li>
+                        <li>Please input your ID number in order to finalize your reservation (e.g., 202307). This will also serve as your username should you wish to check your current reservations.
+                        </li>
+                    </ol>
+                </div>
+                <div class="next-button">
+                    <a href="{{ url_for('birdseye') }}" class="continue" style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">CONTINUE</a>
+                </div>  
+            </div>
+        </div>
+    
+        <div class="popup" id="popup-2">
+            <div class="overlay"></div>
+            <div class="content">
+                <div class="close-btn" onclick="login('popup-2')">&times;</div>
+                <div class="inside-box"></div>
+                <center>
+                    <table>
+                        <th style="background-color: #003060; color:#FFFFFF; height: 05px;"> <h2> My Reservations</h2>
+                        </th>
+                        <tr>
+                            <td style="height: 100px;"><center>
+                                <form action="{{url_for('my_reservations')}}" method="post">
+                                    <br><br>
+                                    <label for="id" style="font-size: 20px; font: ovo;"> Enter your ID Number: </label>
+                                    <br><br>
+                                    <input type="text" class="form-control" id="username" name="username" required style="height:30px; width:500px; padding-left: 5px; font-size: 15px;">
+                                    <br><br><br>
+                                    <a href="{{ url_for('my_reservations') }}" style="color:white">
+                                        <input type="button" value="Cancel" text-align:center style="height:40px; width:150px"> 
+                                    </a>
+                                        &nbsp;&nbsp;&nbsp;
+                                        <input type="submit" value="Submit" class="continue" style="height:40px; width:150px; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+                            </center></td>
+                            
+                        </tr>
+                </center>
+                </div>
+    
+            </div>
+        </div>
+
+    </section>  
+
+</body>
+</html>

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="with=device-width, initial-scale=1.0">
+    <title> Matteo Table Reservation </title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='room-d.css') }}">
+    <script src="{{ url_for('static', filename='room-d.js') }}"></script>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='all-images/favicon-32x32.png') }}">
+</head>
+<body>
+    <section class="header">
+        <nav>
+            <a href="{{ url_for('welcomepage') }}">
+                <img src="{{ url_for('static', filename='all-images/temp-logo.png') }}" alt="Image" class="nav-logo">
+            </a>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="{{ url_for('welcomepage') }}">HOME</a></li>
+                    <li><a href="{{ url_for('about') }}">ABOUT</a></li>
+                    <li><a href="{{ url_for('birdseye') }}">RESERVE A TABLE</a></li>
+                    <li><a onclick="login('popup-2')">MY RESERVATIONS</a></li>
+                </ul>
+            </div>
+        </nav>
+        
+        <div class="white-background">
+            <div class="top">
+                <div class="img-container">
+                {% if 'dtt1' in valid_table_classes%}
+                <img src="{{ url_for('static', filename='all-images/matteo-d-tables/2table.jpg') }}" class="red-filter"></a>
+                <div class="top-red">DTT 1</div>
+                {% else %}
+                <a onclick ="reserve('popup-3'), handleButtonClick('dtt1')"><img src="{{ url_for('static', filename='all-images/matteo-d-tables/2table.jpg') }}" class="dtt1"><div class="top-text">DTT 1</div></a>
+                {% endif %}
+                </div>
+                
+                <div class="img-container">
+                {% if 'dtt2' in valid_table_classes%}
+                <img src="{{ url_for('static', filename='all-images/matteo-d-tables/2table.jpg') }}" class="red-filter"> </a>
+                <div class="top-red">DTT 2</div>
+                {% else %}
+                <a onclick ="reserve('popup-3'), handleButtonClick('dtt2')"><img src="{{ url_for('static', filename='all-images/matteo-d-tables/2table.jpg') }}" class="dtt2"><div class="top-text">DTT 2</div> </a>
+                {% endif %}
+                </div>
+                
+                <div class="img-container">
+                {% if 'dtt3' in valid_table_classes%}
+                <img src="{{ url_for('static', filename='all-images/matteo-d-tables/2table.jpg') }}" class="red-filter"></a>
+                <div class="top-red">DTT 3</div>
+                {% else %}
+                <a onclick ="reserve('popup-3'), handleButtonClick('dtt3')"><img src="{{ url_for('static', filename='all-images/matteo-d-tables/2table.jpg') }}" class="dtt3"><div class="top-text">DTT 3</div></a>
+                {% endif %}
+                </div>
+                
+                <div class="img-container">
+                {% if 'dtt4' in valid_table_classes%}
+                <img src="{{ url_for('static', filename='all-images/matteo-d-tables/2table.jpg') }}" class="red-filter"></a>
+                <div class="top-red">DTT 4</div>
+                {% else %}
+                <a onclick ="reserve('popup-3'), handleButtonClick('dtt4')"><img src="{{ url_for('static', filename='all-images/matteo-d-tables/2table.jpg') }}" class="dtt4"><div class="top-text">DTT 4</div></a>
+                {% endif %}
+                </div>
+                
+                <div class="img-container">
+                {% if 'dtt5' in valid_table_classes%}
+                <img src="{{ url_for('static', filename='all-images/matteo-d-tables/2table.jpg') }}" class="red-filter"></a>
+                <div class="top-red">DTT 5</div>
+                {% else %}
+                <a onclick ="reserve('popup-3'), handleButtonClick('dtt5')"><img src="{{ url_for('static', filename='all-images/matteo-d-tables/2table.jpg') }}" class="dtt5"><div class="top-text">DTT 5</div></a>
+                {% endif %}
+                </div>
+            </div>
+            <br>
+            <div class="middle">
+                <div class="img-container">
+                {% if 'dmt1' in valid_table_classes%}
+                <img src="{{ url_for('static', filename='all-images/matteo-d-tables/table.jpg') }}" class="red-filter"></a>
+                <div class="mid-red">DMT 1</div>
+                {% else %}
+                <a onclick ="reserve('popup-3'), handleButtonClick('dmt1')"><img src="{{ url_for('static', filename='all-images/matteo-d-tables/table.jpg') }}" class="dmt1"><div class="mid-text">DMT 1</div></a>
+                {% endif %}
+                </div>
+                
+                <div class="img-container">
+                {% if 'dmt2' in valid_table_classes%}
+                <img src="{{ url_for('static', filename='all-images/matteo-d-tables/table.jpg') }}" class="red-filter"></a>
+                <div class="mid-red">DMT 2</div>
+                {% else %}
+                <a onclick ="reserve('popup-3'), handleButtonClick('dmt2')"><img src="{{ url_for('static', filename='all-images/matteo-d-tables/table.jpg') }}" class="dmt2"><div class="mid-text">DMT 2</div></a>
+                {% endif %}
+                </div>
+                
+                <div class="img-container">
+                {% if 'dmt3' in valid_table_classes%}
+                <img src="{{ url_for('static', filename='all-images/matteo-d-tables/table.jpg') }}" class="red-filter"></a>
+                <div class="mid-red">DMT 3</div>
+                {% else %}
+                <a onclick ="reserve('popup-3'), handleButtonClick('dmt3')"><img src="{{ url_for('static', filename='all-images/matteo-d-tables/table.jpg') }}" class="dmt3"><div class="mid-text">DMT 3</div></a>
+                {% endif %}
+                </div>
+
+                <div class="img-container">
+                {% if 'dmt4' in valid_table_classes%}
+                <img src="{{ url_for('static', filename='all-images/matteo-d-tables/table.jpg') }}" class="red-filter"></a>
+                <div class="mid-red">DMT 4</div>
+                {% else %}
+                <a onclick ="reserve('popup-3'), handleButtonClick('dmt4')"><img src="{{ url_for('static', filename='all-images/matteo-d-tables/table.jpg') }}" class="dmt4"><div class="mid-text">DMT 4</div></a>
+                {% endif %}
+                </div>
+            </div>
+            <br>
+            <div class="bottom">
+                <div class="img-container">
+                {% if 'dbt1' in valid_table_classes%}
+                <img src="{{ url_for('static', filename='all-images/matteo-d-tables/5chairs.jpg') }}" class="red-filter"></a>
+                <div class="bot-red">DBT 1</div>
+                {% else %}
+                <a onclick ="reserve('popup-3'), handleButtonClick('dbt1')"><img src="{{ url_for('static', filename='all-images/matteo-d-tables/5chairs.jpg') }}" class="dbt1"><div class="bot-text">DBT 1</div></a>
+                {% endif %}
+                </div>
+
+                <div class="img-container">
+                {% if 'dbt2' in valid_table_classes%}
+                <img src="{{ url_for('static', filename='all-images/matteo-d-tables/5chairs.jpg') }}" class="red-filter"></a>
+                <div class="bot-red">DBT 2</div>
+                {% else %}
+                <a onclick ="reserve('popup-3'), handleButtonClick('dbt2')"><img src="{{ url_for('static', filename='all-images/matteo-d-tables/5chairs.jpg') }}" class="dbt2"><div class="bot-text">DBT 2</div></a>
+                 {% endif %}
+                </div>
+
+                <div class="img-container">
+                {% if 'dbt3' in valid_table_classes%}
+                <img src="{{ url_for('static', filename='all-images/matteo-d-tables/5chairs.jpg') }}" class="red-filter"></a>
+                <div class="bot-red">DBT 3</div>
+                {% else %}
+                <a onclick ="reserve('popup-3'), handleButtonClick('dbt3')"><img src="{{ url_for('static', filename='all-images/matteo-d-tables/5chairs.jpg') }}" class="dbt3"><div class="bot-text">DBT 3</div></a>
+                {% endif %}
+                </div>
+
+                <div class="img-container">
+                {% if 'dbt4' in valid_table_classes%}
+                <img src="{{ url_for('static', filename='all-images/matteo-d-tables/5chairs.jpg') }}" class="red-filter"></a>
+                <div class="bot-red">DBT 4</div>
+                {% else %}
+                <a onclick ="reserve('popup-3'), handleButtonClick('dbt4')"><img src="{{ url_for('static', filename='all-images/matteo-d-tables/5chairs.jpg') }}" class="dbt4"><div class="bot-text">DBT 4</div></a>
+                {% endif %}
+                </div>
+
+                <div class="img-container">
+                {% if 'dbt5' in valid_table_classes%}
+                <img src="{{ url_for('static', filename='all-images/matteo-d-tables/5chairs.jpg') }}" class="red-filter"></a>
+                <div class="bot-red">DBT 5</div>
+                {% else %}
+                <a onclick ="reserve('popup-3'), handleButtonClick('dbt5')"><img src="{{ url_for('static', filename='all-images/matteo-d-tables/5chairs.jpg') }}" class="dbt5"><div class="bot-text">DBT 5</div></a>
+                {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="blue-box">
+            <p>Please select ONE table at a time (Note: The joint tables at the top are considered as one table).</p>
+            <a href="{{ url_for('birdseye') }}" class="back" style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"> GO BACK</a>
+            <a onclick = "togglePopup('popup-1')" class="test" style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"> INSTRUCTIONS</a>
+        </div>
+        <div class="popup" id="popup-1">
+            <div class="overlay"></div>
+            <div class="content">
+                <div class="close-btn" onclick="togglePopup('popup-1')">&times;</div>
+                <div class="inside-box"></div>
+                <h2>MATTEO RESERVATIONS</h2> 
+                <div class="instructions">
+                    <h3><b>To secure your table reservation, kindly follow the proper steps below:</b></h3>
+                    <ol>
+                        <li>Click on the desired room to initiate the reservation process.</li>
+                        <li>Select the specific table you wish to reserve from the available options.</li>
+                        <li>Enter the date and time of your desired reservation.</li>
+                        <li>Please input your ID number in order to finalize your reservation (e.g., 202307). This will also serve as your username should you wish to check your current reservations.
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="data" id="popup-3">
+            <div class="overlay"></div>
+            <div class="content">
+                <div class="close-btn" onclick="reserve('popup-3')">&times;</div>
+                <div class="inside-box"></div>
+                <h2>RESERVE TABLE</h2>
+                <table class="tebol">
+                    <form action="/submit" method="POST">
+                        <input type="hidden" name="table_class_input" id="table_class_input" value="">  
+                        <tr>
+                            <td width="250px" height="35px" style="padding-top:30px;">ID Number</td>
+                            <td style="padding-top:35px;"><input type="number" id="id" name="id" style="width: 300px; height: 30px; padding-left:5px; font-size:15px;"></td>
+                        </tr>
+                        <tr>
+                            <td width="250px" height="30px">Last Name</td>
+                            <td><input type="text" id="surname" name="surname" style="width: 300px; height: 30px; padding-left:5px; font-size:15px;"></td>
+                        </tr>
+                        <tr>
+                            <td width="250px" height="30px">Date of Reservation</td>
+                            <td><input type="date" id="dateofres" name="dateofres" style="width: 300px; height: 30px; padding-left:5px; font-size:15px;"></td>
+                        </tr>
+                        <tr>
+                            <td width="250px" height="30px">Time</td>
+                            <td><label style="font-size:13px;">From &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;To</label><br><input type="time" id="time_start" name="time_start" style="width: 144px; height: 30px;"> 
+                                <input type="time" id="time_end" name="time_end" style="width: 144px; height: 30px; padding-left:5px; font-size:15px;"> </td>
+                        </tr>
+                        <tr>
+                            <td width="250px" height="50px" colspan="2" style="padding-top:30px; padding-bottom:10px;"><center>
+                                <a href="{{ url_for('birdseye') }}" style="color:white">
+                                    <input type="button" value="Cancel" text-align:center style="height:40px; width:150px"> 
+                                </a>&nbsp;&nbsp;&nbsp;
+                                <input type="submit" value="Enter" text-align:center style="height:40px; width:150px; background-color:#003060; color:#FFFFFF; padding-left:5px; font-size:15px;">
+                            </td></center>
+                        </tr>
+                    </form>
+                    </table>
+            </div>
+        </div>
+
+        <div class="popup" id="popup-2">
+            <div class="overlay"></div>
+            <div class="content">
+                <div class="close-btn" onclick="login('popup-2')">&times;</div>
+                <div class="inside-box"></div>
+                <center>
+                    <table>
+                        <th style="background-color: #003060; color:#FFFFFF; height: 05px;"> <h2> My Reservations</h2>
+                        </th>
+                        <tr>
+                            <td style="height: 100px;"><center>
+                                <form action="{{url_for('my_reservations')}}" method="post">
+                                    <br><br>
+                                    <label for="id" style="font-size: 20px; font: ovo;"> Enter your ID Number: </label>
+                                    <br><br>
+                                    <input type="text" class="form-control" id="username" name="username" required style="height:30px; width:500px; padding-left: 5px; font-size: 15px;">
+                                    <br><br><br>
+                                    <a href="{{ url_for('birdseye') }}" style="color:white">
+                                        <input type="button" value="Cancel" text-align:center style="height:40px; width:150px"> 
+                                    </a>
+                                        &nbsp;&nbsp;&nbsp;
+                                        <input type="submit" value="Submit" class="continue" style="height:40px; width:150px; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+                            </center></td>
+                            
+                        </tr>
+                </center>
+                </div>
+
+            </div>
+        </div>
+ 
+    </section> 
+
+</body>

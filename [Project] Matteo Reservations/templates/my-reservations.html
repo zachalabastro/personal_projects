@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<style>
+    table {
+        border-collapse: collapse;
+        width: 75%;
+        height: 100%;
+        border: 1.5px solid #003060 ;
+        text-align: center;
+    }
+    
+    th, td {
+        text-align: center;
+        padding: 10px;
+    }
+    
+    tr:nth-child(even) {
+        background-color: #FFFFFF;
+        
+    }
+
+    tr:nth-child(odd) {
+    background-color: whitesmoke    ;
+}
+
+    </style>
+<head>
+    <meta name="viewport" content="with=device-width, initial-scale=1.0">
+    <title> Matteo Table Reservation </title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='my-reservations.css')}}">
+    <script src="{{ url_for('static', filename='my-reservations.js') }}"></script>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='all-images/favicon-32x32.png') }}">
+</head>
+<body>
+    <section class="header">
+        <nav>
+            <a href="{{ url_for('welcomepage') }}">
+                <img src="{{ url_for('static', filename='all-images/temp-logo.png') }}" alt="Image" class="nav-logo">
+            </a>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="{{ url_for('welcomepage') }}">HOME</a></li>
+                    <li><a href="{{ url_for('about') }}">ABOUT</a></li>
+                    <li><a onclick="togglePopup('popup-1')">RESERVE A TABLE</a></li>
+                    <li><a href="{{ url_for('all_reservations') }}">ALL RESERVATIONS</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class ="reservations">
+            <center><table>
+                <tr style="background-color: #003060; color: #FFFFFF;">
+                <th>ID NUMBER</th>
+                <th>NAME</th>
+                <th>TABLE RESERVED</th>
+                <th>DATE OF RESERVATION</th>
+                <th>RESERVED FROM</th>
+                <th>RESERVED UNTIL</th>
+                <th></th>
+                </tr>
+               {% for task in tasks %}
+                    <tr>
+                    <td>{{ task.id }}</td>   
+                    <td>{{task.surname}}</td>
+                    <td>{{task.table_class}}</td>
+                    <td>{{task.dateofres}}</td>
+                    <td>{{task.time_start}}</td>
+                    <td>{{task.time_end}}</td>
+                    <td> <a onclick = "cancel('popup-4')"><button type="button" style="cursor: pointer; height:40px; width:125px; background-color:darkred; color:#FFFFFF">CANCEL</button></a></td>
+                    </tr>
+                {% endfor %}
+
+            </table>
+            </center>
+        </div>
+
+        <div class="blue-box">
+            <p> To initiate the cancellation process for your reservation, simply click the "Cancel" button located on the right-hand side of your respective booking. </p>
+        </div>
+        
+        <div class="popup" id="popup-1">
+            <div class="overlay"></div>
+            <div class="content">
+                <div class="close-btn" onclick="togglePopup('popup-1')">&times;</div>
+                <div class="inside-box"></div>
+                <h2>MATTEO RESERVATIONS</h2>
+                <div class="instructions">
+                    <h3><b>To secure your table reservation, kindly follow the proper steps below:</b></h3>
+                    <ol>
+                        <li>Click on the desired room to initiate the reservation process.</li>
+                        <li>Select the specific table you wish to reserve from the available options.</li>
+                        <li>Enter the date and time of your desired reservation.</li>
+                        <li>Please input your ID number in order to finalize your reservation (e.g., 202307). This will also serve as your username should you wish to check your current reservations.
+                        </li>
+                    </ol>
+                </div>
+                <div class="next-button">
+                    <a href="{{ url_for('birdseye') }}" class="continue" style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">CONTINUE</a>
+                </div>  
+            </div>
+        </div>
+        {%for task in tasks%}
+        <div class="cancel" id="popup-4" >
+            <div class="overlay"></div>
+            <div class="content">
+                <div class="close-btn" onclick="cancel('popup-4')">&times;</div>
+                <div class="inside-box"></div>
+                <h2>CANCEL RESERVATION</h2>
+                <div class="instructions">
+                    <p>Are you sure you want to cancel your reservation? You will need to reserve a table again in order to change your previous reservation to your newly-desired timeslot. <b>You are also only allowed to delete one reservation at a time. </b><br><br> Please note that cancelling your reservation will bring you back to the homepage.</p>
+                </div>
+                <div class="next-button" onclick="showTextBoxAndClosePopup()">
+                    <a href="/delete/{{task.index}}" style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; text-decoration:none;color:#FFFFFF;"><button type="button" style="cursor: pointer; height:40px; width:125px; background-color:darkred; color:#FFFFFF">CANCEL</button></a>
+                </div>  
+            </div>
+        </div>
+        <div id="text-box" class="text-box">Reservation successfully cancelled!</div>
+
+        {%endfor%}
+    </section>  
+
+
+
+
+</body>
+</html>

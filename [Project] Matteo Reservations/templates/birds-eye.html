@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="with=device-width, initial-scale=1.0">
+    <title> Matteo Table Reservation </title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='birds-eye.css') }}">
+    <script src="{{ url_for('static', filename='birds-eye.js') }}"></script>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='all-images/favicon-32x32.png') }}">
+</head>
+<body>
+    <section class="header">
+        <nav>
+            <a href="{{ url_for('welcomepage') }}">
+                <img src="{{ url_for('static', filename='all-images/temp-logo.png') }}" alt="Image" class="nav-logo">
+            </a>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="{{ url_for('welcomepage') }}">HOME</a></li>
+                    <li><a href="{{ url_for('about') }}">ABOUT</a></li>
+                    <li><a href="{{ url_for('all_reservations') }}">ALL RESERVATIONS</a></li>
+                    <li><a onclick="login('popup-2')">MY RESERVATIONS</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="entire-matteoup">
+            <div class="matteo-up-c">
+                <a href="{{ url_for('room_c') }}">
+                <img class="c-image" src="{{ url_for('static', filename='all-images/birds-eye/matteo-c.png') }}" alt="MatC">
+                <div class="c-overlay">
+                    <div class="c-title">Matteo C</div>
+                </div>
+                </a>
+            </div>
+
+            <div class="matteo-up-hall">
+                <img class="hall-image" src="{{ url_for('static', filename='all-images/birds-eye/hallway.png') }}" alt="Hallway">
+                <div class="hall-overlay">
+                    <div class="hall-title">Main Hallway</div>
+                </div>
+            </div>
+
+            <div class="matteo-up-d">
+                <a href="{{ url_for('room_d') }}">
+                <img class="d-image" src="{{ url_for('static', filename='all-images/birds-eye/matteo-d.png') }}" alt="MatD">
+                <div class="d-overlay">
+                    <div class="d-title">Matteo D</div>
+                </div>
+                </a>
+            </div>
+        </div>
+        <div class="blue-box">
+            <p>Please click on your preferred Matteo Up Room in order to view table vacancies. Thank you!</p>
+        </div>
+        <div class="popup" id="popup-2">
+            <div class="overlay"></div>
+            <div class="content">
+                <div class="close-btn" onclick="login('popup-2')">&times;</div>
+                <div class="inside-box"></div>
+                <center>
+                    <table>
+                        <th style="background-color: #003060; color:#FFFFFF; height: 05px;"> <h2> My Reservations</h2>
+                        </th>
+                        <tr>
+                            <td style="height: 100px;"><center>
+                                <form action="{{url_for('my_reservations')}}" method="post">
+                                    <br><br>
+                                    <label for="id" style="font-size: 20px; font: ovo;"> Enter your ID Number: </label>
+                                    <br><br>
+                                    <input type="text" class="form-control" id="username" name="username" required style="height:30px; width:500px; padding-left: 5px; font-size: 15px;">
+                                    <br><br><br>
+                                    <a href="{{ url_for('my_reservations') }}" style="color:white">
+                                        <input type="button" value="Cancel" text-align:center style="height:40px; width:150px"> 
+                                    </a>
+                                        &nbsp;&nbsp;&nbsp;
+                                        <input type="submit" value="Submit" class="continue" style="height:40px; width:150px; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+                            </center></td>
+                            
+                        </tr>
+                </center>
+                </div>
+
+            </div>
+        </div>
+    </section>
+</body>
