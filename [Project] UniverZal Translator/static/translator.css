@@ -1,0 +1,99 @@
+body {
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 0;
+    background-image: url("/static/images/worldmap.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    position: relative;
+}
+
+.container {
+    max-width: 750px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    border: 2px #0000;
+    display: flex;
+    flex-direction: column;
+    margin-top: 75px;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 0px;
+    color: #223d68;
+}
+
+textarea {
+    width: 95.5%;
+    padding: 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    resize: vertical;
+    min-height: 150px;
+}
+
+.dropdowns {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.dropdown-container {
+    width: 47.5%;
+}
+
+.dropdown {
+    cursor: pointer;
+    background: #fff;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown:hover {
+    background-color: #ccc;
+}
+
+input[type="submit"]{
+    margin-bottom: 20px;
+    height: 3em;
+    width: 100%;
+    font-size: 15px;
+    font-weight: bolder;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 2px #000000 solid;
+    background-color: #223d68;
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+input[type="submit"]:hover{
+    background: #ffffff00;
+    color: #223d68;
+    border: 2px #223d68 solid;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    appearance: none; /* Removes default style on some browsers */
+    -webkit-appearance: none; /* For WebKit browsers like Safari */
+    -moz-appearance: none; /* For Firefox */
+    background-color: #fff;
+}
