@@ -1,0 +1,88 @@
+body {
+    background-image: url('images/server-room.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    margin: 0;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body::before{
+    content: "";
+    background: rgba(255, 255, 255, 0.667);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.form-container {
+    background-color: rgb(230, 230, 230);
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+p {
+    margin-top: 2.5px;
+    font-size: 12.5px;
+    text-align: center;
+}
+
+hr {
+    margin-bottom: 10px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.input-group input[type="text"],
+.input-group input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    width: 100%;
+    height: 2em;
+    margin-top: 5px;
+    border-radius: 5px;
+    background-color: #253e6d;
+    color: #fff;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    font-size: 15px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+#showPassword {
+    margin-top: 15px;
+    font-size: smaller;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #ffffff00;
+    color: #253e6d;
+}

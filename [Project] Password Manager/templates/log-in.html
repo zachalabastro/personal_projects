@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='log-in.css')}}">
+    <script src="{{url_for('static', filename='log-in.js')}}"></script>
+    <title>Password Manager</title>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Password Manager</h2>
+        <p><i>First-time users will have their initial User ID and Password registered before logging in again.</i></p>
+        <hr>
+        <form action="/log" method="post">
+            <div class="input-group">
+                <label for="user-id">User ID:</label>
+                <input type="text" name="user-id" placeholder="Input User ID">
+            </div>
+    
+            <div class="input-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" placeholder="Input Password">
+                <input type="checkbox" id="showPassword"> Show Password
+            </div>
+
+            <input type="submit" value="Log-In/Sign-Up">
+        </form>
+    </div>
+</body>
+</html>

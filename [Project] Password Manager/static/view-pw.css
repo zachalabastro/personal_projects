@@ -1,0 +1,238 @@
+body {
+    background-image: url('images/server-room.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    margin: 0;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body::before{
+    content: "";
+    background: rgba(255, 255, 255, 0.667);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+    width: 75%; 
+    margin: 0 auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse; 
+}
+
+table, th, td {
+    border: 2px solid #000;
+    
+}
+
+thead {
+    background-color: #253e6d;
+    height: 2em;
+}
+
+thead th {
+    color: #fff;
+}
+
+tbody tr {
+    background-color: #fff;
+    height: 2em;
+    text-align: center;
+}
+
+.password-table .hidden-password {
+    color: white; /* This hides the password by making it the same color as the background */
+    transition: color 0.3s ease;
+}
+
+.password-table tr:hover .hidden-password {
+    color: black; /* This shows the password when the row is hovered over */
+}
+
+.controls {
+    width: 100%;
+    display: flex;  
+    align-items: center; 
+    justify-content: space-between;
+    margin-bottom: 0px;
+}
+
+.controls label {
+    font-size: 17.5px;
+    font-weight: bolder;
+}
+
+.filtering {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.add-password, .all-passwords {
+    height: 2em;
+    margin-top: 5px;
+    margin-bottom: 7.5px;
+    border-radius: 5px;
+    background-color: #253e6d;
+    color: #fff;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    font-size: 15px;
+    border: 2px solid #253e6d;
+    padding: 5px;
+}
+
+.add-password:hover, .all-passwords:hover {
+    background-color: #ffffff;
+    color: #253e6d;
+    border: 2px solid #253e6d;
+}
+
+input[type="text"] {
+    font-size: 15px;
+    padding: 5px;
+    height: 10px;
+    border-radius: 5px;
+}
+
+.log-out-container {
+    right: 0;
+}
+
+.log-out {
+    display: inline-block;
+    background-color: #253e6d;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px; 
+    font-size: 15px;    
+    padding:  5px;
+    transition: background-color 0.3s;
+    border: 2px solid #253e6d;
+}
+
+.log-out:hover {
+    background-color: #fff;
+    color: #253e6d;
+    border: 2px solid #253e6d;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: auto;
+    z-index: 1000;
+}
+
+.popup-form {
+    background-color: rgb(255, 255, 255);
+    width: 400px;
+    height: 285px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+.popup-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    background-color: #253e6d;
+    width: 100%;
+    height: 50px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+h2 {
+    color: white;
+    margin: 0 auto;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: space-between;
+    padding: 15px;
+}
+
+button {
+    padding: 7.5px;
+    border-radius: 5px;
+    background-color: #253e6d;
+    color: #fff;
+    border: 2px solid #253e6d;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 1em;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    transition: all 0.5s ease;
+}
+
+button:hover {
+    background-color: #fff;
+    color: #253e6d;
+}
+
+input[type="text"],
+input[type="password"]{
+    font-size: 16px;
+    box-shadow: #000;
+}
+ 
+.close-btn {
+    margin-left: 10px;
+    font-size: 25px;
+    color: white;
+    cursor: pointer;
+    background: none;
+    border: none;
+    line-height: 1;
+    z-index: 1001;
+}
+
+.checkbox {
+    margin-top: 2.5px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.scrollable {
+    max-height: 500px;
+    overflow-y: scroll;
+    display: block;
+    width: 100%;
+}

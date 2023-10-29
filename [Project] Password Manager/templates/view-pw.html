@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='view-pw.css')}}">
+    <script src="{{url_for('static', filename='view-pw.js')}}"></script>
+    <title>Password Manager</title>
+</head>
+<body>
+    <div class="container">
+        <div class="controls">
+            <div class="filtering">
+                <button class="add-password">+ Add Password</button>
+                <form action="/allpassword" methods="get">
+                    <button class="all-passwords">Show All Passwords</button>
+                </form>
+                <form action="/filter" method="post">
+                    <div class="filter-controls">
+                        <label for="filter">Search Password/s:</label>
+                        <input type="text" name="filter" placeholder="Enter Password Name">
+                    </div>
+                </form>
+            </div>
+            <div class="log-out-container">
+                <a href="{{url_for('index')}}" class="log-out">Log-Out</a>
+            </div>
+        </div>
+        <div class="scrollable">
+            <table border="2" class="password-table">
+                <thead>
+                    <tr>
+                        <th>Password Name</th>
+                        <th>Password (Hover to View)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for pwd in results %}
+                        <tr>
+                            <td>{{ pwd.name }}</td>
+                            <td class="hidden-password">{{ pwd.password }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table> 
+        </div>       
+    </div>
+
+    <div class="overlay"></div>
+    <div class="popup" id="passwordPopup">
+        <div class="popup-form">
+            <div class="popup-header">
+                <h2>Add Password</h2>
+                <span class="close-btn">&times;</span>
+            </div>
+            <form id="passwordForm" action="/addpassword" method="post">
+                <label for="passwordName">Password Name:</label>
+                <input type="text" id="passwordName" name="passwordName" required placeholder="Input Password Name">
+    
+                <label for="passwordValue">Password:</label>
+                <input type="password" id="passwordValue" name="passwordValue" required placeholder="Input Password">
+                
+                <div class="checkbox">
+                    <input type="checkbox" id="showPassword"> Show Password  
+                </div>
+    
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
