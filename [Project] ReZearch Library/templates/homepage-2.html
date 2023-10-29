@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReZearch Library | Personal Project</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='homepage-2.css')}}">
+    <script src="{{url_for('static', filename='homepage-2.js')}}"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="{{url_for('homepage')}}"><img src="{{url_for('static', filename='images/logo.png')}}" alt="Logo"></a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{{url_for('homepage')}}">Home</a></li>
+                <li><a onclick="togglePopup()">Add New Research</a></li>
+                <li><a href="{{url_for('view_existing')}}">View Existing Research</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <h1>ReZearch Collaborative Library</h1>
+        <h3>Welcome to our Collaborative Research Library – 
+            Your Gateway to Knowledge Sharing! Discover, upload, 
+            and categorize research from the vast expanse of the internet. 
+            Connect with a global community of researchers, making it easier 
+            than ever to find and share valuable insights within your field of study. 
+            Join us in the pursuit of collective knowledge!</h3>
+        <div class="button-container">
+            <button class="button1" onclick="togglePopup()">Add New Research</button>
+            <a href="{{url_for('view_existing')}}"><button class="button2">View Existing Research</button></a>
+        </div>
+    </div>
+    <div class="lower-box">
+        <p>© 2023 ReZearch Collaborative Library. All Rights Reserved.</p>
+    </div>
+    <div class="overlay" id="overlay"></div>
+    <div id="popup" class="popup"> 
+        <div class="popup-header">
+            <h2>Add New Research</h2>
+            <span class="close" id="closePopup" onclick="togglePopup()">&times;</span>
+        </div>
+        <div class="popup-content">
+            <form id="researchForm" action="/submit" method="post">
+
+                <div class="input-group">
+                    <label for="name">Name of Research:</label>
+                    <input type="text" id="name" name="name" required placeholder="Please provide the complete name.">
+                </div>
+
+                <div class="input-group">
+                    <label for="date">Date of Publication:</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="link">Link to Article:</label>
+                    <input type="url" id="link" name="link" required placeholder="Please provide the URL.">
+                </div>
+
+                <div class="input-group">
+                    <label for="category_1">Primary Category:</label>
+                        <select name="category_1" id="category_1" required>
+                            <option value="none">-- Choose a Category -- </option>
+                            <option value="physics">Physics</option>
+                            <option value="chemistry">Chemistry</option>
+                            <option value="biology">Biology</option>
+                            <option value="geology">Geology</option>
+                            <option value="astronomy">Astronomy</option>
+
+                            <option value="anthropology">Anthropology</option>
+                            <option value="sociology">Sociology</option>
+                            <option value="psychology">Psychology</option>
+                            <option value="political-science">Political Science</option>
+                            <option value="geography">Geography</option>
+                            <option value="economics">Economics</option>
+
+                            <option value="history">History</option>
+                            <option value="literature">Literature</option>
+                            <option value="philosophy">Philosophy</option>
+                            <option value="art-history">Art History</option>
+                            <option value="linguistics">Linguistics</option>
+                            <option value="religious-studies">Religious Studies</option>
+
+                            <option value="mathematics">Mathematics</option>
+                            <option value="statistics">Statistics</option>
+                            <option value="logic">Logic</option>
+                            <option value="computer-science">Computer Science</option>
+                            <option value="systems-science">Systems Science</option>
+
+                            <option value="engineering">Engineering & Technology</option>
+                            <option value="medicine">Medicine & Health</option>
+                            <option value="architecture">Architecture</option>
+                            <option value="environmental-science">Environmental Science</option>
+                            <option value="agricultural-science">Agricultural Science</option>
+
+                            <option value="environmental-studies">Environmental Studies</option>
+                            <option value="gender-studies">Gender Studies</option>
+                            <option value="ethnic-studies">Ethnic Studies</option>
+                            <option value="area-studies">Area Studies</option>
+
+                            <option value="basic-research">Basic or Fundamental Research</option>
+                            <option value="applied-research">Applied Research</option>
+                            <option value="problem-oriented-research">Problem-oriented Research</option>
+                            <option value="market-research">Market Research</option>
+                            <option value="action-research">Action Research</option>
+                            <option value="evaluative-research">Evaluative Research</option>
+                        </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="category_2">Secondary Category (Optional):</label>
+                        <select name="category_2" id="category_2">
+                            <option value="none">-- Choose a Category --</option>
+                            <option value="physics">Physics</option>
+                            <option value="chemistry">Chemistry</option>
+                            <option value="biology">Biology</option>
+                            <option value="geology">Geology</option>
+                            <option value="astronomy">Astronomy</option>
+
+                            <option value="anthropology">Anthropology</option>
+                            <option value="sociology">Sociology</option>
+                            <option value="psychology">Psychology</option>
+                            <option value="political-science">Political Science</option>
+                            <option value="geography">Geography</option>
+                            <option value="economics">Economics</option>
+
+                            <option value="history">History</option>
+                            <option value="literature">Literature</option>
+                            <option value="philosophy">Philosophy</option>
+                            <option value="art-history">Art History</option>
+                            <option value="linguistics">Linguistics</option>
+                            <option value="religious-studies">Religious Studies</option>
+
+                            <option value="mathematics">Mathematics</option>
+                            <option value="statistics">Statistics</option>
+                            <option value="logic">Logic</option>
+                            <option value="computer-science">Computer Science</option>
+                            <option value="systems-science">Systems Science</option>
+
+                            <option value="engineering">Engineering & Technology</option>
+                            <option value="medicine">Medicine & Health</option>
+                            <option value="architecture">Architecture</option>
+                            <option value="environmental-science">Environmental Science</option>
+                            <option value="agricultural-science">Agricultural Science</option>
+
+                            <option value="environmental-studies">Environmental Studies</option>
+                            <option value="gender-studies">Gender Studies</option>
+                            <option value="ethnic-studies">Ethnic Studies</option>
+                            <option value="area-studies">Area Studies</option>
+
+                            <option value="basic-research">Basic or Fundamental Research</option>
+                            <option value="applied-research">Applied Research</option>
+                            <option value="problem-oriented-research">Problem-oriented Research</option>
+                            <option value="market-research">Market Research</option>
+                            <option value="action-research">Action Research</option>
+                            <option value="evaluative-research">Evaluative Research</option>
+                        </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="description">Short Description:</label>
+                    <textarea id="description" name="description" required placeholder="Please keep your description as short as possible."></textarea>
+                </div>
+
+                <div class="input-group">
+                    <label for="keywords">Keywords:</label>
+                    <input type="text" id="keywords" name="keywords" required placeholder="Please separate using commas (ex. Marketing, Society, Anthropology).">
+                </div>
+
+                <div class="input-group-submit">
+                    <input type="submit" value="Submit">
+                </div>
+
+            </form>
+        </div>
+    </div>
+    <div class="submitpopup" id="submitpopup">
+        <div class="greybox">
+            <p>Upload complete! Thank you for taking part in helping the research community.</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReZearch Library | Personal Project</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='view-existing.css')}}">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="{{url_for('homepage')}}"><img src="{{url_for('static', filename='images/logo.png')}}" alt="Logo"></a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{{url_for('homepage')}}">Home</a></li>
+                <li><a href="{{url_for('view_existing')}}">View Existing Research</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="container">
+            <h1>ReZearch Collaborative Library</h1>
+            <h3>After entering keywords and clicking the search button, you'll gain access to a comprehensive database of information to choose from. Each entry is accompanied by a link to the original research, allowing you to utilize it for your specific needs and purposes.</h3>
+        <div class="finder-box">
+            <div class="header">Search for Research Here</div>
+            <div class="sub-note">(You may choose one or the other, or both.)</div>
+            <div class="search-box">
+                <form action="/search" method="post">
+                    <input name="keyword-input" type="text" class="keyword-input" placeholder="Enter keyword/s here.">
+
+                    <select name="category" id="category">
+                        <option value="none">-- Choose a Category --</option>
+                        <option value="all">All Categories</option>
+                        <option value="physics">Physics</option>
+                        <option value="chemistry">Chemistry</option>
+                        <option value="biology">Biology</option>
+                        <option value="geology">Geology</option>
+                        <option value="astronomy">Astronomy</option>
+    
+                        <option value="anthropology">Anthropology</option>
+                        <option value="sociology">Sociology</option>
+                        <option value="psychology">Psychology</option>
+                        <option value="political-science">Political Science</option>
+                        <option value="geography">Geography</option>
+                        <option value="economics">Economics</option>
+    
+                        <option value="history">History</option>
+                        <option value="literature">Literature</option>
+                        <option value="philosophy">Philosophy</option>
+                        <option value="art-history">Art History</option>
+                        <option value="linguistics">Linguistics</option>
+                        <option value="religious-studies">Religious Studies</option>
+    
+                        <option value="mathematics">Mathematics</option>
+                        <option value="statistics">Statistics</option>
+                        <option value="logic">Logic</option>
+                        <option value="computer-science">Computer Science</option>
+                        <option value="systems-science">Systems Science</option>
+    
+                        <option value="engineering">Engineering & Technology</option>
+                        <option value="medicine">Medicine & Health</option>
+                        <option value="architecture">Architecture</option>
+                        <option value="environmental-science">Environmental Science</option>
+                        <option value="agricultural-science">Agricultural Science</option>
+    
+                        <option value="environmental-studies">Environmental Studies</option>
+                        <option value="gender-studies">Gender Studies</option>
+                        <option value="ethnic-studies">Ethnic Studies</option>
+                        <option value="area-studies">Area Studies</option>
+    
+                        <option value="basic-research">Basic or Fundamental Research</option>
+                        <option value="applied-research">Applied Research</option>
+                        <option value="problem-oriented-research">Problem-oriented Research</option>
+                        <option value="market-research">Market Research</option>
+                        <option value="action-research">Action Research</option>
+                        <option value="evaluative-research">Evaluative Research</option>
+                    </select>
+                
+                    <div class="search-button">
+                        <input type="submit" value="Search Results">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="lower-box">
+        <p>© 2023 ReZearch Collaborative Library. All Rights Reserved.</p>
+    </div>  
+</body>
+</html>
